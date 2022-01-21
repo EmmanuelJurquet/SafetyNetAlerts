@@ -3,8 +3,6 @@ package com.sna.model;
 import java.beans.JavaBean;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Calendar;
-import java.util.Date;
 
 @JavaBean
 public class MedicalRecords {
