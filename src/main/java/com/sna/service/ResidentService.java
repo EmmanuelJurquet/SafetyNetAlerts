@@ -53,6 +53,8 @@ public class ResidentService {
 
 		return resident;
 	}
+	
+	
 
 	public List<Resident> findListOfResidentsByAddress (String address) {
 
@@ -86,7 +88,7 @@ public class ResidentService {
 			MedicalRecords medfil = medicalrecordsDAO.findMedFile(pers.getFirstname(), pers.getLastname());
 			Long age =  medfil.getBirthdate().until(LocalDate.now(), ChronoUnit.YEARS);
 			Resident resident= new Resident();
-			// resident à remplir avec les données
+			
 			resident.setFirstName(pers.getFirstname());
 			resident.setLastName(pers.getLastname());
 			resident.setBirthday(medfil.getBirthdate());

@@ -27,7 +27,7 @@ public class JSONFireStations {
 		JSONParser jsonP = new JSONParser ();
 		List<FireStations> lFireStations = new ArrayList<>();  
 		try {
-			JSONObject json = (JSONObject) jsonP.parse(new FileReader ("C:\\Users\\emman\\OneDrive\\Bureau\\P5_Emmanuel_Jurquet_\\sna.json"));
+			JSONObject json = (JSONObject) jsonP.parse(new FileReader ("sna.json"));
 			JSONArray fireStationsArray = (JSONArray) json.get("firestations");
 
 			for (int i = 0;i<fireStationsArray.size();i++) {

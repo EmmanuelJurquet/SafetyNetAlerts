@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ResidentsTests.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">java (1) (22 janv. 2022 07:44:14)</a> &gt; <a href="../../index.html" class="el_group">safety_net_alerts</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">com.sna.tests.service</a> &gt; <span class="el_source">ResidentsTests.java</span></div><h1>ResidentsTests.java</h1><pre class="source lang-java linenums">package com.sna.tests.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import static org.junit.Assert.assertEquals;
+
+import com.sna.DAO.FireStationsDAOImpl;
+import com.sna.DAO.IFireStationsDAO;
+import com.sna.DAO.IMedicalRecordsDAO;
+import com.sna.DAO.IPersonDAO;
+import com.sna.DAO.MedicalRecordsDAOImpl;
+import com.sna.DAO.PersonDAOImpl;
+import com.sna.model.MedicalRecords;
+import com.sna.model.Persons;
+import com.sna.model.Resident;
+import com.sna.service.ResidentService;
+@SpringBootTest
+<span class="fc" id="L23">public class ResidentsTests {</span>
+
+	
+	
+	
+	@Autowired
+	ResidentService resService;
+	
+	@MockBean
+	IPersonDAO personsDAO;
+	@MockBean
+	IFireStationsDAO firestationsDAO;
+	@MockBean
+	IMedicalRecordsDAO medicalrecordsDAO;
+
+	
+	
+	
+	
+	
+	
+	
+	@Test
+	public void findListOfResidentsByAddress() {
+		
+<span class="fc" id="L48">		Resident resident = null;</span>
+		
+<span class="fc" id="L50">		List&lt;Resident&gt; result = new ArrayList&lt;&gt;();</span>
+		
+<span class="fc" id="L52">		String address = &quot;1509 Culver St&quot;;</span>
+		
+	
+		
+<span class="fc" id="L56">		List&lt;Persons&gt; personsaddress = personsDAO.findPersonsByAddress(address);</span>
+		
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">		for (Persons pers : personsaddress) {</span>
+<span class="nc" id="L59">			resident = resService.resident(pers.getFirstname(), pers.getLastname());</span>
+			
+<span class="nc" id="L61">			result.add(resident);</span>
+		}
+			
+		
+<span class="fc" id="L65">		assertEquals(result.add(resident),true);</span>
+			
+			
+<span class="fc" id="L68">		}</span>
+
+	}
+	
+	
+	
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span>java (1) (22 janv. 2022 07:44:14)</div></body></html>

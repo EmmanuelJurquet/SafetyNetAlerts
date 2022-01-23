@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>FireStationsDAOImpl.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">java (1) (22 janv. 2022 07:44:14)</a> &gt; <a href="../../index.html" class="el_group">safety_net_alerts</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">com.sna.DAO</a> &gt; <span class="el_source">FireStationsDAOImpl.java</span></div><h1>FireStationsDAOImpl.java</h1><pre class="source lang-java linenums">package com.sna.DAO;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.sna.model.FireStations;
+import com.sna.repository.ProxyBDD;
+
+@Repository
+<span class="fc" id="L11">public  class FireStationsDAOImpl implements IFireStationsDAO {</span>
+
+
+	@Autowired 
+	private ProxyBDD proxyBDD;
+
+
+	public List&lt;FireStations&gt; findAll() {
+
+<span class="nc" id="L20">		return proxyBDD.getlFireStations();</span>
+	}
+
+	public boolean add(FireStations firestations ) {
+<span class="fc" id="L24">		boolean result  = false;</span>
+<span class="fc" id="L25">		List&lt;FireStations&gt; lfirestations = proxyBDD.getlFireStations();</span>
+<span class="fc" id="L26">		lfirestations.add(firestations);</span>
+<span class="fc" id="L27">		return result;</span>
+	}
+
+	public boolean remove(String address, String station) {
+<span class="fc" id="L31">		List&lt;FireStations&gt; lfirestations = proxyBDD.getlFireStations();</span>
+<span class="fc" id="L32">		boolean result = false;</span>
+		
+<span class="fc bfc" id="L34" title="All 2 branches covered."> 		for (FireStations firesta:lfirestations) {</span>
+
+<span class="pc bpc" id="L36" title="1 of 4 branches missed.">			if (firesta.getStation().equals(station)&amp;&amp;firesta.getAddress().equals(address)) {		</span>
+<span class="fc" id="L37">				lfirestations.remove(firesta);</span>
+<span class="fc" id="L38">				result = true;</span>
+<span class="fc" id="L39">				break;</span>
+			}
+		}
+<span class="fc" id="L42"> 		return result ;</span>
+	}
+	public boolean replace(FireStations firestations) {
+		
+<span class="fc" id="L46">		List&lt;FireStations&gt;lfirestations = proxyBDD.getlFireStations();</span>
+<span class="fc" id="L47">		boolean result = false;</span>
+<span class="fc" id="L48">		String address = firestations.getAddress();</span>
+
+<span class="fc bfc" id="L50" title="All 2 branches covered.">		for(FireStations firesta:lfirestations) {</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">			if (firesta.getAddress().equals(address)){		</span>
+
+<span class="fc" id="L53">				firesta.setStation(firestations.getStation());</span>
+			}
+		}
+<span class="fc" id="L56">		return result ;</span>
+	}
+
+
+	
+	public List&lt;String&gt; findAddressByStationNumber(String firestation) {
+
+<span class="nc" id="L63">		List&lt;FireStations&gt;lfirestations = proxyBDD.getlFireStations();</span>
+<span class="nc" id="L64">		List&lt;String&gt; lAddress = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		for (FireStations firesta : lfirestations) {</span>
+			
+<span class="nc bnc" id="L68" title="All 2 branches missed.">			if( firesta.getStation().equals(firestation) ) {</span>
+<span class="nc" id="L69">				lAddress.add(firesta.getAddress());</span>
+			}
+			
+		}
+		
+<span class="nc" id="L74">		return lAddress;</span>
+
+	}
+	public List&lt;String&gt; findStationByAddress (String address) {
+<span class="fc" id="L78">		List&lt;FireStations&gt;lfirestations = proxyBDD.getlFireStations();</span>
+<span class="fc" id="L79">		List&lt;String&gt; results = new ArrayList&lt;&gt;();</span>
+		
+<span class="fc bfc" id="L81" title="All 2 branches covered.">		for (FireStations stations : lfirestations) {</span>
+			
+<span class="fc" id="L83">			String findaddress = stations.getAddress();</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">			if(findaddress.equals(address)) {</span>
+				
+<span class="nc" id="L86">				results.add(stations.getStation());</span>
+			}
+		}
+<span class="fc" id="L89">		return results;</span>
+	}
+
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span>java (1) (22 janv. 2022 07:44:14)</div></body></html>

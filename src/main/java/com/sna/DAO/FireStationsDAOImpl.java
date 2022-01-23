@@ -1,14 +1,10 @@
 package com.sna.DAO;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.sna.model.FireStations;
-import com.sna.model.Persons;
 import com.sna.repository.ProxyBDD;
 
 @Repository
@@ -19,9 +15,10 @@ public  class FireStationsDAOImpl implements IFireStationsDAO {
 	private ProxyBDD proxyBDD;
 
 
-	public List<FireStations> findAll() {
-
+	public   List<FireStations> findAll() {
+		boolean result = false;
 		return proxyBDD.getlFireStations();
+		
 	}
 
 	public boolean add(FireStations firestations ) {

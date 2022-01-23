@@ -30,6 +30,7 @@ public class FireStationsController {
 		logger.info("Recherche des Casernes de Pompiers");
 		List<FireStations> lFire = firestationService.list();
 		logger.info(lFire);
+		
 		return lFire;
 	}
 

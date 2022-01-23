@@ -27,7 +27,7 @@ public class JSONPersons {
 
 		try {
 
-			JSONObject jsonO = (JSONObject) jsonP.parse(new FileReader("C:\\Users\\emman\\OneDrive\\Bureau\\P5_Emmanuel_Jurquet_\\sna.json"));
+			JSONObject jsonO = (JSONObject) jsonP.parse(new FileReader("sna.json"));
 
 			JSONArray persArray = (JSONArray) jsonO.get("persons");
 		

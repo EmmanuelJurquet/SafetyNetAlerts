@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>FireStationsIntegrationsTests.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">java (1) (22 janv. 2022 07:44:14)</a> &gt; <a href="../../index.html" class="el_group">safety_net_alerts</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">com.sna.tests.integration.service</a> &gt; <span class="el_source">FireStationsIntegrationsTests.java</span></div><h1>FireStationsIntegrationsTests.java</h1><pre class="source lang-java linenums">package com.sna.tests.integration.service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import com.sna.model.FireStations;
+
+import com.sna.service.FireStationsService;
+
+@SpringBootTest
+<span class="fc" id="L12">public class FireStationsIntegrationsTests {</span>
+
+	@Autowired
+	FireStationsService fservice;
+
+	@Test
+	public void add () {
+		
+<span class="fc" id="L20">		FireStations station = new FireStations ();</span>
+		
+<span class="fc" id="L22">		station.setAddress(&quot;158 av Nichols&quot;);</span>
+<span class="fc" id="L23">		station.setStation(&quot;4&quot;);</span>
+		
+		
+<span class="fc" id="L26">		assertEquals(fservice.add(station),true);</span>
+<span class="fc" id="L27">	}</span>
+	@Test
+	public void remove () {
+		
+<span class="fc" id="L31">		FireStations station =  new FireStations ();</span>
+<span class="fc" id="L32">		station.setAddress(&quot;new place&quot;);</span>
+<span class="fc" id="L33">		station.setStation(&quot;5&quot;);</span>
+		
+<span class="fc" id="L35">		fservice.add(station);</span>
+<span class="fc" id="L36">		fservice.remove(&quot;new place&quot;, &quot;5&quot;);</span>
+<span class="fc" id="L37">		assertEquals(fservice.remove(&quot;new place &quot;, &quot;5&quot;), true);</span>
+		
+<span class="fc" id="L39">	}</span>
+	@Test
+	public void replace () {
+<span class="fc" id="L42">		FireStations station =  new FireStations ();</span>
+<span class="fc" id="L43">		station.setAddress(&quot;new place&quot;);</span>
+<span class="fc" id="L44">		station.setStation(&quot;5&quot;);</span>
+		
+<span class="fc" id="L46">		fservice.add(station);</span>
+<span class="fc" id="L47">		station.setAddress(&quot;16 av zanzibar&quot;);</span>
+		
+<span class="fc" id="L49">		fservice.replace(station);</span>
+<span class="fc" id="L50">		fservice.findStationByAddress(&quot;16, av Zanzibar&quot;);</span>
+<span class="fc" id="L51">		assertEquals(&quot;16, av Zanzibar&quot;, &quot;16, av Zanzibar&quot;);</span>
+		
+		
+<span class="fc" id="L54">	}</span>
+	}	
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span>java (1) (22 janv. 2022 07:44:14)</div></body></html>

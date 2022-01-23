@@ -1,6 +1,8 @@
 package com.sna.tests.integration.service;
 
+
 import static org.mockito.Mockito.when;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
@@ -46,7 +48,7 @@ public class FireStationsControllerTests {
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+     
         }
 	}
 	@Test
@@ -67,7 +69,7 @@ public class FireStationsControllerTests {
 					.contentType(MediaType.APPLICATION_JSON))
 					.andExpect(status().isOk());
 			}catch(Exception e ) {
-				System.out.println(e.getMessage());
+		
 			}
 		
 	
@@ -88,7 +90,7 @@ public class FireStationsControllerTests {
 					.contentType(MediaType.APPLICATION_JSON))
 					.andExpect(status().isOk());
 			}catch(Exception e ) {
-				System.out.println(e.getMessage());
+			
 			}
 	}
 	
@@ -104,7 +106,8 @@ public class FireStationsControllerTests {
 				System.out.println(e.getMessage());
 			}
 	}
-}
+	
+}	
 
 
 

@@ -46,5 +46,39 @@ public class UrlsServicesListTests {
 		
 		assertEquals(lAddress.size(), lAdressTest.size());
 	}
+	@Test
+	public void findResidentsPhoneByStationNumber () {
+		String phone = "phone\":\"841-874-6513";
+		List<String> test = urlsService.findResidentsPhoneByStationNumber(phone);
+		String firestation = "2";
+		List<String> findStationTest = new ArrayList<>();
+		
+		List<String> findStation = fireDAO.findAddressByStationNumber(firestation);
+		when(fireDAO.findAddressByStationNumber(firestation)).thenReturn(findStationTest);
+		List<String> result =  new ArrayList<>();
+		List<String> persResult =  new ArrayList<>();
+		for (String address : findStation) {
 
+			List<String> results  = personDAO.findPhoneByAddress(address);
+			when(personDAO.findPhoneByAddress(address)).thenReturn(persResult);
+			result.addAll(results);
+		
+		}
+		assertEquals(findStationTest.size(),findStation.size());
+		assertEquals(result.size(),test.size());
+	}
+	@Test
+	public void findEmail() {
+		String city = "Culver";
+		List <String> findEmail = personDAO.findEmail(city);
+		List <String> tests = new ArrayList<>();
+		
+		when(personDAO.findEmail(city)).thenReturn(tests);
+		assertEquals(findEmail.size(),tests.size());
+		
+		
+		
+	}
+		
 }
+	

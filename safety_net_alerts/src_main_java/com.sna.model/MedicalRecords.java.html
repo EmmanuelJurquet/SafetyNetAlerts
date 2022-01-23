@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>MedicalRecords.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">java (1) (22 janv. 2022 07:44:14)</a> &gt; <a href="../../index.html" class="el_group">safety_net_alerts</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">com.sna.model</a> &gt; <span class="el_source">MedicalRecords.java</span></div><h1>MedicalRecords.java</h1><pre class="source lang-java linenums">package com.sna.model;
+
+import java.beans.JavaBean;
+import java.time.LocalDate;
+import java.util.List;
+
+@JavaBean
+<span class="fc" id="L8">public class MedicalRecords {</span>
+
+
+	private String firstname;
+	private String lastname;
+	private LocalDate birthdate;
+	private List&lt;String&gt; medications;
+	private List&lt;String&gt; allergies;
+
+
+	public String getFirstname() {
+<span class="fc" id="L19">		return firstname;</span>
+	}
+	public void setFirstname(String firstname) {
+<span class="fc" id="L22">		this.firstname = firstname;</span>
+<span class="fc" id="L23">	}</span>
+	public String getLastname() {
+<span class="fc" id="L25">		return lastname;</span>
+	}
+	public void setLastname(String lastName) {
+<span class="fc" id="L28">		this.lastname = lastName;</span>
+<span class="fc" id="L29">	}</span>
+
+	public LocalDate getBirthdate() {
+<span class="fc" id="L32">		return birthdate;</span>
+	}
+	public void setBirthdate(LocalDate birthdate) {
+<span class="fc" id="L35">		this.birthdate = birthdate;</span>
+<span class="fc" id="L36">	}</span>
+
+	public List&lt;String&gt; getMedications() {
+<span class="fc" id="L39">		return medications;</span>
+	}
+	public void setMedications(List&lt;String&gt; medications) {
+<span class="fc" id="L42">		this.medications = medications;</span>
+<span class="fc" id="L43">	}</span>
+	public List&lt;String&gt; getAllergies() {
+<span class="fc" id="L45">		return allergies;</span>
+	}
+	public void setAllergies(List&lt;String&gt; allergies) {
+<span class="fc" id="L48">		this.allergies = allergies;</span>
+<span class="fc" id="L49">	}</span>
+
+	@Override
+	public String toString() {
+<span class="fc" id="L53">		return &quot;MedicalRecords [firstname=&quot; + firstname + &quot;, lastname=&quot; + lastname + &quot;, birthdate=&quot; + birthdate</span>
+<span class="fc" id="L54">				+ &quot;, medications=&quot; + medications + &quot;, allergies=&quot; + allergies + &quot;]&quot;;</span>
+
+	}
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span>java (1) (22 janv. 2022 07:44:14)</div></body></html>
